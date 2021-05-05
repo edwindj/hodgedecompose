@@ -1,0 +1,16 @@
+Package: hodgedecompose
+Title: Decompose a Flow Graph
+Version: 0.1.0.9000
+Authors@R: 
+    person(given = "Edwin",
+           family = "de Jonge",
+           role = c("aut", "cre"),
+           email = "edwindjonge@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Decomposes a directed weighted graph into a directed acyclic flow, 
+   a local cyclic flow and a global cyclic flow.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
