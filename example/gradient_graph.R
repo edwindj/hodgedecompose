@@ -52,7 +52,7 @@ library(Matrix)
 
 solve_svd <- function(A, b, tol = .Machine$double.eps){
   # could also use sparsesvd!
-  
+
   A_inv <- with(svd(A), {
     is_pos <- d > max(tol * d[1L], 0)
     # so that 1/d is zero
@@ -72,7 +72,11 @@ solve_qr <- function(A, b, tol = .Machine$double.eps){
 }
 
 flip_edges <- function(x, flip){
-  x$weight[flip] <- -x$weight[flip]
+  for (n in colnames(x)[-c(1:2)]){
+    x[[n]][flip] <- -x[[n]][flip]
+  }
+  #x$weight[flip] <- -x$weight[flip]
+
   from_flip <- x$to[flip]
   x$to[flip] <- x$from[flip]
   x$from[flip] <- from_flip
@@ -85,7 +89,7 @@ gradient_graph_edgelist <- function( x
                                    , method=c("qr", "svd")
                                    ){
   method <- match.arg(method)
-  
+
   # node id to factor...
   if (is.factor(x$from)){
     x$from <- as.character(x$from)
@@ -96,50 +100,50 @@ gradient_graph_edgelist <- function( x
   # above code is needed to make sure, concatenating is going well.
   f <- factor(c(x$from, x$to))
   l <- levels(f)
-  
+
   # recoding node ids
   x$from <- factor(x$from, levels = l)
   x$to <- factor(x$to, levels = l)
-  
+
   # remove self links
   x <- x[x$from != x$to,]
-  
+
   # normalize el: always from < to (by negating weight).
   x <- flip_edges(x, unclass(x$from) > unclass(x$to))
-  
+
   # take the net flow
   x <- aggregate(weight ~ from + to, data = x, sum)
   # x
-  
+
   v <- data.frame(id = l)
-  
+
   # get divergence
-  v$div <- tapply(x$weight, x$from, sum, default = 0) - 
+  v$div <- tapply(x$weight, x$from, sum, default = 0) -
            tapply(x$weight, x$to,   sum, default = 0)
-  
+
   v$div <- as.numeric(v$div)
-  
+
   # calculate Graph Laplacian (unweighted, undirected)
   L <- sparseMatrix(i = c(x$from, x$to), j = c(x$to, x$from), x = -1)
   diag(L) <- -rowSums(L)
   L
   v$pot <-
-    switch( method 
+    switch( method
           , qr  = solve_qr(L, v$div, tol = tol)
           , svd = solve_svd(L, v$div, tol = tol)
           )
-  
+
   # potential is translation invariant, so make lowest potential 0.
   v$pot <- v$pot - min(v$pot)
-  
+
   # is this ok? just the potential difference? Shouldn't this be a weighted version?
-  e_gradient <- within(x, weight <- v$pot[from] - v$pot[to])
-  
+  e_gradient <- within(x, w_g <- v$pot[from] - v$pot[to])
+
   # denormalize gradient
   e_gradient <- flip_edges(e_gradient, e_gradient$weight < 0)
-  
+
   #e_gradient
-  
+
   list( v          = v
       , e_gradient = e_gradient
       )

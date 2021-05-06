@@ -3,3 +3,5 @@
 ^LICENSE\.md$
 ^example$
 ^README\.Rmd$
+^README\.md$
+^data-raw$
