@@ -3,22 +3,14 @@
 \docType{data}
 \name{g_gradient}
 \alias{g_gradient}
-\title{Gradient edgelist}
+\title{Data set with only gradient flow}
 \format{
-\code{data.frame} edgelist
-\itemize{
-\item \code{from}
-\item \code{to}
-\item \code{weight}
-}
-}
-\source{
-Paper
+An object of class \code{data.frame} with 13 rows and 3 columns.
 }
 \usage{
 g_gradient
 }
 \description{
-Gradient edgelist
+Data set with only gradient flow
 }
 \keyword{datasets}

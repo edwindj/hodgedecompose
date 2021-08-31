@@ -3,14 +3,14 @@
 \docType{data}
 \name{g_traffic}
 \alias{g_traffic}
-\title{Traffic example edgelist}
+\title{Traffic flow}
 \format{
-\code{data.frame}
+An object of class \code{data.frame} with 9 rows and 3 columns.
 }
 \usage{
 g_traffic
 }
 \description{
-Traffic example edgelist
+Traffic flow
 }
 \keyword{datasets}

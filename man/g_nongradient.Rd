@@ -3,14 +3,14 @@
 \docType{data}
 \name{g_nongradient}
 \alias{g_nongradient}
-\title{Non gradient example edgelist}
+\title{Directed edge list with cycles}
 \format{
-\code{data.frame}
+An object of class \code{data.frame} with 13 rows and 3 columns.
 }
 \usage{
 g_nongradient
 }
 \description{
-Non gradient example edgelist
+Directed edge list with cycles
 }
 \keyword{datasets}
