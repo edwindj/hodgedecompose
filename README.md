@@ -7,6 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/hodgedecompose)](https://CRAN.R-project.org/package=hodgedecompose)
+[![R-CMD-check](https://github.com/edwindj/hodgedecompose/workflows/R-CMD-check/badge.svg)](https://github.com/edwindj/hodgedecompose/actions)
 <!-- badges: end -->
 
 The goal of hodgedecompose is to …
