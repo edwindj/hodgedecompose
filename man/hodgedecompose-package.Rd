@@ -13,7 +13,7 @@ Decomposes a directed weighted graph into a directed acyclic flow,
 https://facultyweb.cs.wwu.edu/~johnsoj5/prepub/Hodge\%20Tutorial.pdf
 }
 \author{
-\strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com} (\href{https://orcid.org/YOUR-ORCID-ID}{ORCID})
+\strong{Maintainer}: Edwin de Jonge \email{edwindjonge@gmail.com} (\href{https://orcid.org/0000-0002-6580-4718}{ORCID})
 
 }
 \keyword{internal}

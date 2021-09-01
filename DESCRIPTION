@@ -6,7 +6,7 @@ Authors@R:
            family = "de Jonge",
            role = c("aut", "cre"),
            email = "edwindjonge@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID="0000-0002-6580-4718"))
 Description: Decomposes a directed weighted graph into a directed acyclic flow, 
    a local cyclic flow and a global cyclic flow as described in <doi:10.1109/MCSE.2012.91>
 License: MIT + file LICENSE

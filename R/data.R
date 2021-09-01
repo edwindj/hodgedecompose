@@ -24,5 +24,5 @@
 #' - `from`
 #' - `to`
 #' - `weight`
-  #' @source statline
+#' @source statline
 "nl_migration"
