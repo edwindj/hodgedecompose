@@ -136,7 +136,7 @@ gradient_graph_edgelist <- function( x
   # potential is translation invariant, so make lowest potential 0.
   v$pot <- v$pot - min(v$pot)
 
-  # is this ok? just the potential difference? Shouldn't this be a weighted version?
+  # the gradient flow is the difference in potential
   e_gradient <- within(x, w_g <- v$pot[from] - v$pot[to])
 
   # denormalize gradient
