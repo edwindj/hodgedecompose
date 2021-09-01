@@ -12,6 +12,8 @@ Description: Decomposes a directed weighted graph into a directed acyclic flow,
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/edwindj/hodgedecompose
+BugReports: https://github.com/edwindj/hodgedecompose/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1
 Depends: 
